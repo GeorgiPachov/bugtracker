@@ -1,4 +1,7 @@
 Bugtracker::Application.routes.draw do
+  resources :tickets
+
+
   resources :projects
 
 
