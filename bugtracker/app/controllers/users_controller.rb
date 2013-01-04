@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
-
+  
   # GET /users/new
   # GET /users/new.json
   def new
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
+  
 
   # GET /users/1/edit
   def edit
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

@@ -4,4 +4,13 @@
 <br />
 <%= link_to "Projects:", :controller => "projects"%>
 <br />
-<%= link_to "Tickets:", :controller => "tickets"%>
+
+<% unless user_signed_in? -%>
+	<p>
+		<%= link_to 'Sign in as User', new_user_session_path %>
+	</p>
+	<% else -%>
+	<p>
+		<%= link_to 'Sign up as User', new_user_registration_path %>
+	</p>
+<% end -%>
