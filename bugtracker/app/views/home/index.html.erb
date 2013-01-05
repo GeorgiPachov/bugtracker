@@ -1,13 +1,8 @@
-<h1>Bugtracker Admin Panel</h1>
-
-<%= link_to "Users:", :controller => "users"%>
-<br />
-<%= link_to "Projects:", :controller => "projects"%>
-<br />
+<h1>Welcome to Bugtracker!</h1>
 
 <% unless user_signed_in? -%>
 	<p>
-		<%= link_to 'Sign in as User', new_user_session_path %>
+		<%= link_to 'Sign in', new_user_session_path %>
 	</p>
 	<% else -%>
 	<p>

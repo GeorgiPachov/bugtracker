@@ -5,9 +5,9 @@ Bugtracker::Application.routes.draw do
 
   resources :users
 
-  get "home/index"
 
   root :to => "home#index"
   match '/token' => 'home#token', :as => :token
-
+   
+  match '/admin', :to =>'admin#index'
 end
