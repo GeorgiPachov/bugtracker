@@ -1,12 +1,27 @@
 <h1>Welcome to Bugtracker!</h1>
 <% unless user_signed_in? -%>
-	<p>
-		<%= link_to 'Sign in', new_user_session_path %>
-		<%= link_to 'Sign up as User', new_user_registration_path %>
-	</p>
-<% else -%>	
+<p>
+	<%= link_to 'Sign in', new_user_session_path %>
+	<%= link_to 'Sign up as User', new_user_registration_path %>
+</p>
+<% else -%>
 <p>
 	<%= link_to 'Administration', :controller => 'admin' %>
+
+	<table>
+		<tr>
+			<td>Select a project:</td>
+		</tr>
+
+		<% @projects.each do |project| %>
+		<tr>
+		
+			<br />
+			<td><%= link_to project.name, project %></td>
+		</tr>
+		<% end %>
+	</table>
+
 </p>
 <% end -%>
 
