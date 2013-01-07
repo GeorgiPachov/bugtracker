@@ -97,3 +97,9 @@ a {
 #user_login_box {
 	text-align: right;
 }
+
+.tabled_view td {
+	padding: 10px;
+	border: 1px solid;
+}
+

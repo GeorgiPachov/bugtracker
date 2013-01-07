@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Project Name:</b>
+  <b>Name:</b>
   <%= @project.name %>
 </p>
 
 <p>
-  <b>Created on:</b>
+  <b>Timestamp:</b>
   <%= @project.timestamp %>
 </p>
+
 
 <table>
   <tr>
@@ -16,7 +17,7 @@
     <th>Project</th>
     <th>Status</th>
     <th>Assignee</th>
-    <th>Created on:</th>
+    <th>Timestamp</th>
     <th></th>
     <th></th>
     <th></th>
@@ -29,15 +30,12 @@
     <td><%= ticket.status %></td>
     <td><%= ticket.assignee %></td>
     <td><%= ticket.timestamp %></td>
-   <!--
     <td><%= link_to 'Show', ticket %></td>
-       <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-       <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-   
+    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
-<%= link_to 'Report a ticket', new_ticket_path %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

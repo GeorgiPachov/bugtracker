@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -14,11 +14,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    
+    @tickets = Ticket.all.select { |ticket| ticket.project == params[:id] }
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
     end
+    
   end
 
   # GET /projects/new
