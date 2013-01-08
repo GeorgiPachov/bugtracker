@@ -22,18 +22,15 @@
 
 		<div id="container">
 
-			<%= %>
-
-			<div id="user_bar_top_right">
-
-			</div>
-
 			<%- flash.each do |name, msg| -%>
-
 			<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-
 			<%- end -%>
 
+			<div id="header">
+				<%= link_to root_path do %>
+				<span id="header_span">Bugtracker</span>
+				<% end %>
+			</div>
 			<div id="user_login_box">
 
 				<span class = "greetings"><% if user_signed_in? -%>
@@ -45,23 +42,18 @@
 					<li>
 
 						<%= link_to 'Home', root_path %>
-
 						<%= link_back 'Back' %>
 					</li>
 					<li>
 						<%= link_to 'My info', edit_user_registration_path %> |
 					</li>
 					<li>
-
 						<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-
 						<% else -%>
-
 					</li>
 					<li>
 						<%= link_to 'Sign in', new_user_session_path %>
 					</li>
-
 					<li>
 						<%= link_to 'Sign up', new_user_registration_path %>
 					</li>

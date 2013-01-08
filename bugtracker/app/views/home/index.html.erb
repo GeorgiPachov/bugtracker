@@ -6,30 +6,28 @@
 </p>
 <% else -%>
 <p>
-	<div class = "bubble"><%= link_to 'Administration', :controller => 'admin' %>
+	<div>
+		<%= link_to 'Administration', :controller => 'admin' %>
 
-</div>
+	</div>
 	<table class="tabled_view">
-		
+
 		<thead>
 			<tr>
 
 				<th>Select a project:</th>
-		
+
 			</tr>
 
-	
-		</thead>	
-<% @projects.each do |project| %>
+		</thead>
+		<% @projects.each do |project| %>
 		<tr>
-		
 			<br />
 			<td><%= link_to project.name, project %></td>
 		</tr>
 		<% end %>
-	
-		
-</table>
+
+	</table>
 
 </p>
 <% end -%>
