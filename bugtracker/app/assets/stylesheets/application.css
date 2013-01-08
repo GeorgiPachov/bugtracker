@@ -125,7 +125,9 @@ a {
 }
 
 #user_login_box {
+	float: right;
 	text-align: right;
+	display: inline-block;
 }
 
 .tabled_view td, .tabled_view th {
@@ -172,5 +174,24 @@ ul {
 	background-color: rgb(238, 238, 238);
 }
 #header_span {
-	font-size: 36px;	
+	font-size: 36px;
+	display: inline-block;
 }
+.header_home {
+	color: red;
+	text-decoration: none;
+}
+.header_home:hover {
+	color: #333333;
+	background-color: white;
+}
+#header_slogan {
+	color: #333333;
+}
+#header_left{
+	display: inline-block;
+}
+
+
+
+

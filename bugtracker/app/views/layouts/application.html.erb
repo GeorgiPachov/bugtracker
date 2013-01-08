@@ -26,41 +26,39 @@
 			<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 			<%- end -%>
 
-			<div id="header">
-				<%= link_to root_path do %>
-				<span id="header_span">Bugtracker</span>
-				<% end %>
-			</div>
-			<div id="user_login_box">
-
-				<span class = "greetings"><% if user_signed_in? -%>
-
-					Welcome,
-					<%= current_user.email %> </span>
-				<br />
-				<ul class = "navigation_menu">
-					<li>
-
-						<%= link_to 'Home', root_path %>
-						<%= link_back 'Back' %>
-					</li>
-					<li>
-						<%= link_to 'My info', edit_user_registration_path %> |
-					</li>
-					<li>
-						<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-						<% else -%>
-					</li>
-					<li>
-						<%= link_to 'Sign in', new_user_session_path %>
-					</li>
-					<li>
-						<%= link_to 'Sign up', new_user_registration_path %>
-					</li>
-				</ul>
-				<% end -%>
-
-			</div>
+			<header>
+				<div id="header_left">
+					<%= link_to root_path, :class => 'header_home' do %>
+					<h1 id="header_span">Bugtracker</h1>
+					<% end %>
+				</div>
+				<div id="user_login_box">
+					<span class = "greetings"> <% if user_signed_in? -%>
+						Welcome,
+						<%= current_user.email %> </span>
+					<br />
+					<ul class = "navigation_menu">
+						<li>
+							<%= link_to 'Home', root_path %>
+							<%= link_back 'Back' %>
+						</li>
+						<li>
+							<%= link_to 'My info', edit_user_registration_path %> |
+						</li>
+						<li>
+							<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+							<% else -%>
+						</li>
+						<li>
+							<%= link_to 'Sign in', new_user_session_path %>
+						</li>
+						<li>
+							<%= link_to 'Sign up', new_user_registration_path %>
+						</li>
+					</ul>
+					<% end -%>
+				</div>
+			</header>
 
 			<div style="clear:both"></div>
 
