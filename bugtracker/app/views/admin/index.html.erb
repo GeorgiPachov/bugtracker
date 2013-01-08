@@ -1,8 +1,24 @@
 <h1>Bugtracker Admin Panel</h1>
 
-<%= link_to "Administer users:", :controller => "users"%>
-<%= link_to "Administer projects:", :controller => "projects"%>
-<%= link_to "Administer tickets:", :controller => "tickets"%>
+<ul class = "admin_list">
+
+<li>
+
+
+<%= link_to "Administer users", :controller => "users"%>
+</li>
+
+
+<li>
+<%= link_to "Administer projects", :controller => "projects"%>
+</li>
+
+
+<li>
+<%= link_to "Administer tickets", :controller => "tickets"%>
+</li>
+</ul>
+
 <br />
 <!-- 
 <% unless user_signed_in? -%>

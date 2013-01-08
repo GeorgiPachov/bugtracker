@@ -1,49 +1,80 @@
 <!DOCTYPE html>
+
 <html>
+
 	<head>
+
 		<title>Bugtracker</title>
+
 		<%= stylesheet_link_tag    "application", :media => "all" %>
+
 		<%= javascript_include_tag "application" %>
+
 		<%= csrf_meta_tags %>
+
 		<%= stylesheet_link_tag 'application' %>
+
 		<%= yield(:head) %>
+
 	</head>
 
 	<body>
 
 		<div id="container">
+
 			<%= %>
+
 			<div id="user_bar_top_right">
 
 			</div>
+
 			<%- flash.each do |name, msg| -%>
+
 			<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+
 			<%- end -%>
 
 			<div id="user_login_box">
-				<%= link_to 'Home', root_path %>
-				<%= link_back 'Back' %>
-				
-				<% if user_signed_in? -%>
-				Welcome,
-				<%= current_user.email %> |
-				<%= link_to 'My info', edit_user_registration_path %> |
-				<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-				<% else -%>
-				<%= link_to 'Sign in', new_user_session_path %>
-				<%= link_to 'Sign up', new_user_registration_path %>
+
+				<span class = "greetings"><% if user_signed_in? -%>
+
+					Welcome,
+					<%= current_user.email %> </span>
+				<br />
+				<ul class = "navigation_menu">
+					<li>
+
+						<%= link_to 'Home', root_path %>
+
+						<%= link_back 'Back' %>
+					</li>
+					<li>
+						<%= link_to 'My info', edit_user_registration_path %> |
+					</li>
+					<li>
+
+						<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+
+						<% else -%>
+
+					</li>
+					<li>
+						<%= link_to 'Sign in', new_user_session_path %>
+					</li>
+
+					<li>
+						<%= link_to 'Sign up', new_user_registration_path %>
+					</li>
+				</ul>
 				<% end -%>
+
 			</div>
+
 			<div style="clear:both"></div>
 
 			<%= yield %>
 		</div>
-		<!-- 		<p class="notice">
-		<%= notice %>
 
-		</p>
-		<p class="alert">
-		<%= alert %>
-		</p> -->
 	</body>
+
 </html>

@@ -1,7 +1,7 @@
 <h1>Listing tickets</h1>
 
-<table>
-  <tr>
+<table class = "administrate">
+ <thead> <tr>
     <th>User</th>
     <th>Project</th>
     <th>Status</th>
@@ -10,9 +10,7 @@
     <th></th>
     <th></th>
     <th></th>
-  </tr>
-
-<% @tickets.each do |ticket| %>
+  </tr></thead><% @tickets.each do |ticket| %>
   <tr>
     <td><%= ticket.user %></td>
     <td><%= ticket.project %></td>

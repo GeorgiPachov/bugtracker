@@ -1,18 +1,32 @@
 <h1>Listing users</h1>
 
-<table>
+
+<table class = "administrate">
+<thead>
   <tr>
+
     <th>Username</th>
+
     <th>Name</th>
+
     <th>Password</th>
+
     <th>Email</th>
+
     <th>Role</th>
+
     <th>Timestamp</th>
+
     <th></th>
+
     <th></th>
+
     <th></th>
+
   </tr>
 
+
+</thead>
 <% @users.each do |user| %>
   <tr>
     <td><%= user.username %></td>
