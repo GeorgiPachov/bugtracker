@@ -19,8 +19,7 @@
 	</head>
 
 	<body>
-
-		<div id="container">
+		<div id="container" >
 
 			<%- flash.each do |name, msg| -%>
 			<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
@@ -33,38 +32,48 @@
 					<% end %>
 				</div>
 				<div id="user_login_box">
-					<span class = "greetings"> <% if user_signed_in? -%>
-						Welcome,
-						<%= current_user.email %> </span>
-					<br />
-					<ul class = "navigation_menu">
-						<li>
-							<%= link_to 'Home', root_path %>
-							<%= link_back 'Back' %>
-						</li>
-						<li>
-							<%= link_to 'My info', edit_user_registration_path %> |
-						</li>
-						<li>
-							<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+					<span class = "greetings">
+						<ul class = "navigation_menu">
+							<% if user_signed_in? -%>
+							Welcome,
+							<%= current_user.email %>
+							<br />
+							<li>
+								<%= link_to 'Home', root_path %>
+								<%= link_back 'Back' %>
+							</li>
+							<li>
+								<%= link_to 'My info', edit_user_registration_path %> |
+							</li>
+							<li>
+								<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+							</li>
 							<% else -%>
-						</li>
-						<li>
-							<%= link_to 'Sign in', new_user_session_path %>
-						</li>
-						<li>
-							<%= link_to 'Sign up', new_user_registration_path %>
-						</li>
-					</ul>
-					<% end -%>
+							<li>
+								<%= link_to 'Sign in', new_user_session_path %>
+							</li>
+							<li>
+								<%= link_to 'Sign up', new_user_registration_path %>
+							</li>
+							<% end -%>
+						</ul> </span>
+
 				</div>
 			</header>
 
 			<div style="clear:both"></div>
-
-			<%= yield %>
+			<hr/>
+			<div id="content">
+				<%= yield %>
+			</div>
+			<br/>
 		</div>
-
+		<footer>
+			Georgi Pachov, WWW Technologies Coursework @ FMI, Sofia:
+			<time datetime="2011-07-22T13:59:47-04:00">
+				July 22, 2011 1:59 pm EDT
+			</time>
+		</footer>
 	</body>
 
 </html>

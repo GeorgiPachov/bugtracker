@@ -17,6 +17,10 @@ body {
 	background-color: #4B7399;
 	font-family: Verdana, Helvetica, Arial;
 	font-size: 14px;
+	height: 100%;
+}
+html {
+	height: 100%;
 }
 a img {
 	border: none;
@@ -34,6 +38,7 @@ a {
 
 #container {
 	width: 75%;
+	min-height: 85%;
 	margin: 0 auto;
 	background-color: #FFF;
 	padding: 20px 40px;
@@ -42,34 +47,8 @@ a {
 	border-radius: 10px;
 }
 
-.bubble {
-	font-size: 17px;
-	font-weight: bold;
-	position: relative;
-	width: 150px;
-	height: 50px;
-	text-align: center;
-	line-height: 50px;
-	background-color: #fff;
-	border: 8px solid #666;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
-	-webkit-box-shadow: 2px 2px 4px #888;
-	-moz-box-shadow: 2px 2px 4px #888;
-	box-shadow: 2px 2px 4px #888;
+#content{
 }
-/*.bubble:before
- {
- content: '';
- position: absolute;
- width: 0;
- height: 0;
- left: 90px;
- top: 50px;
- border: 25px solid;
- border-color: #666 transparent transparent #666;
- }*/
 
 #flash_notice, #flash_alert {
 	padding: 5px 8px;
@@ -130,11 +109,26 @@ a {
 	display: inline-block;
 }
 
-.tabled_view td, .tabled_view th {
-	padding: 7px;
+table {
 	border: 1px solid;
-	border-radius: 10px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+
+table thead, tbody, tr, td, table th {
+	width: 70%;
+	border-collapse: collapse;
+	border: inherit;
 	text-align: center;
+}
+
+table div {
+	padding: 10px;
+}
+
+table th {
+	background-color: rgb(238, 238, 238);
 }
 
 .administrate td, .administrate th {
@@ -159,19 +153,17 @@ ul {
 .navigation_menu li {
 	display: inline;
 }
-.form {
+form {
 	background-color: rgb(238, 238, 238);
 	border-radius: 10px;
 	padding: 15px;
 	font-weight: bold;
-	box-shadow: 8px 8px 8px #888888;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .greetings {
 	font-weight: bold;
 	color: rgb(0, 66, 104);
-}
-.tabled_view thead {
-	background-color: rgb(238, 238, 238);
 }
 #header_span {
 	font-size: 36px;
@@ -188,10 +180,19 @@ ul {
 #header_slogan {
 	color: #333333;
 }
-#header_left{
+#header_left {
 	display: inline-block;
 }
+table div:hover {
+	color: black;
+	background-color: #EEEEEE;
+}
 
+footer {
+text-align: right;
+position: absolute;
+bottom: 10px;
+}
 
 
 
