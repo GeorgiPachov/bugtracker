@@ -83,4 +83,8 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def create_ticket
+    puts "Attempted to create ticket"
+  end
 end

@@ -22,7 +22,7 @@
     <th></th>
   </tr>
 
-<% @tickets.each do |ticket| %>
+<% @project.tickets.each do |ticket| %>
   <tr>
     <td><%= ticket.user %></td>
     <td><%= ticket.project %></td>
@@ -38,6 +38,22 @@
 <% end %>
 </table>
 
+
+
 <%= link_to 'Report a ticket', new_ticket_path %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+
+<!--<% form_for [@project, Ticket.new] do |f| %> 
+  <p>
+    <%= f.label :title, "Title" %><br />
+    <%= f.text_field :title %><br />
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Create ticket" %>
+  </p>
+<% end %> -->	
