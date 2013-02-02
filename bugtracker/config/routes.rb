@@ -8,7 +8,6 @@ Bugtracker::Application.routes.draw do
 
   root :to => "home#index"
   match '/token' => 'home#token', :as => :token
-  match '/projects/id/new_ticket/' => 'projects#new_ticket', :as => :id  
    
   match '/admin', :to =>'admin#index'
 end
