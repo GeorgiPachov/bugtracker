@@ -1,6 +1,7 @@
 Bugtracker::Application.routes.draw do
   devise_for :users
   resources :tickets
+  resources :ticket_statuses
   resources  :projects do
     resources :tickets
   end
