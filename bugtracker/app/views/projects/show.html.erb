@@ -40,20 +40,22 @@
 
 
 
-<%= link_to 'Report a ticket', new_ticket_path %>
+<!-- <%= link_to 'Report a ticket', new_ticket_path %> -->
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 
 
-<!--<% form_for [@project, Ticket.new] do |f| %> 
-  <p>
-    <%= f.label :title, "Title" %><br />
-    <%= f.text_field :title %><br />
-    <%= f.label :description, "Description" %><br />
+<h2>Create a ticket:</h2>
+<%= form_for([@project, @project.tickets.build]) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :descritpion %><br />
     <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit "Create ticket" %>
-  </p>
-<% end %> -->	
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
