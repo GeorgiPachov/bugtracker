@@ -1,7 +1,7 @@
 class AddProjectToTickets  < ActiveRecord::Migration
   def change
-    # remove_column('tickets', 'project')
-    # remove_column('tickets', 'project_id')
-     add_column('tickets', 'project', :reference, {})
+    change_table :tickets do |t|
+      t.references :project
+    end
   end
 end

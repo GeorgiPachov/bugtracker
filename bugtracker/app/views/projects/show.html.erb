@@ -12,23 +12,24 @@
 
 <table>
   <tr>
-    <th>User</th>
+    <th>Title</th>
+    <th>Reported by</th>
     <th>Project</th>
     <th>Status</th>
     <th>Assignee</th>
     <th>Created on:</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Last update on:</th>
   </tr>
 
 <% @project.tickets.each do |ticket| %>
   <tr>
+    <td><%= ticket.title %></td>
     <td><%= ticket.user %></td>
-    <td><%= ticket.project %></td>
+    <td><%= ticket.project.name %></td>
     <td><%= ticket.status %></td>
     <td><%= ticket.assignee %></td>
-    <td><%= ticket.timestamp %></td>
+    <td><%= ticket.created_at %></td>
+    <td><%= ticket.updated_at %></td>
    <!--
     <td><%= link_to 'Show', ticket %></td>
        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
