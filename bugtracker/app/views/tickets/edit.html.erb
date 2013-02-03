@@ -2,5 +2,21 @@
 
 <%= render 'form' %>
 
+<h3>Comments</h3>
+<% @ticket.comments.each do |comment| %>
+    <b> <%= comment.user.name %>:</b>    <%= comment.comment %> <br/>
+<% end %>
+
+<h3>Add a comment:</h3>
+<%= form_for([@ticket, @ticket.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Show', @ticket %> |
 <%= link_to 'Back', tickets_path %></div>
