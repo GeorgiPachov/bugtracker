@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     
-    @tickets = Ticket.all.select { |ticket| ticket.project == params[:id] }
+    # @tickets = Ticket.all.select { |ticket| ticket.project == params[:id] }
 
     respond_to do |format|
       format.html # show.html.erb

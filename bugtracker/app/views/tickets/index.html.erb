@@ -12,7 +12,7 @@
   </tr></thead><% @tickets.each do |ticket| %>
   <tr>
     <td><%= ticket.user %></td>
-    <td><%= ticket.project %></td>
+    <td><%= ticket.project.name %></td>
     <td><%= ticket.status %></td>
     <td><%= ticket.assignee %></td>
     <td><%= link_to 'Show', ticket %></td>

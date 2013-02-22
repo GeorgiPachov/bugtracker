@@ -74,7 +74,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+        format.html { redirect_to edit_ticket_path(@ticket), notice: 'Ticket was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

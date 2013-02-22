@@ -40,19 +40,29 @@
 							<br />
 							<li>
 								<%= link_to 'Home', root_path %>
-								<%= link_back 'Back' %>
-								<%= link_to 'Search', :controller=> "search" %>
 							</li>
+							|
+							</li>
+								<%= link_to 'Search', :controller=> "/search" %>
+							</li>
+							|
 							<li>
-								<%= link_to 'My info', edit_user_registration_path %> |
+								<%= link_to 'My info', edit_user_registration_path %>
 							</li>
+							|
 							<li>
 								<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 							</li>
 							<% else -%>
 							<li>
-								<%= link_to 'Sign in', new_user_session_path %>
+								<%= link_to 'Home', root_path  %>
 							</li>
+							|
+							<li>
+								<%= link_to 'Sign in', new_user_session_path %>
+
+							</li>
+							|
 							<li>
 								<%= link_to 'Sign up', new_user_registration_path %>
 							</li>
@@ -65,14 +75,16 @@
 			<div style="clear:both"></div>
 			<hr/>
 			<div id="content">
-				<%= yield %>
+				<%= yield  %>
+				<%= link_back 'Back' %>
+
 			</div>
 			<br/>
 		</div>
 		<footer>
-			Georgi Pachov, WWW Technologies Coursework @ FMI, Sofia:
-			<time datetime="2011-07-22T13:59:47-04:00">
-				July 22, 2011 1:59 pm EDT
+			Georgi Pachov, Ruby Programming Coursework @ FMI, Sofia:
+			<time datetime="2013-02-22T13:59:47-04:00">
+				<%= Time.now.inspect %>
 			</time>
 		</footer>
 	</body>

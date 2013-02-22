@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password_confirmation, :remember_me
-  attr_accessible :email, :name, :password, :role, :timestamp, :username
-
+  attr_accessible :email, :name, :password, :role, :username
   has_many :tickets
+
+  validates :name, :presence => true
+  validates :username, :presence => true
+  validates :password, :length => { :in => 6..20 }
+  self.per_page = 10
 end
+

@@ -1,7 +1,13 @@
-<h1>Welcome to Bugtracker!</h1>
+<!-- WELCOME HEADER -->
+<h2>Welcome to Bugtracker!</h2>
+<% unless user_signed_in? %>
+Please sign in to continue.
+<%end%>
+<br/>
 <% if user_signed_in? -%>
 <div>
 	<%= link_to 'Administration', :controller => 'admin' %>
+	<%= link_to 'Create New Project', new_project_path %>
 
 </div>
 <br />
@@ -11,7 +17,7 @@
 		<tr>
 			<th>Project:</th>
 			<th>Last ticket updated: </th>
-			<th>On, By: </th>
+			<th>On </th>
 		</tr>
 	</thead>
 	<% @projects.each do |project| %>
@@ -20,15 +26,25 @@
 		<div>
 			<%= project.name %>
 		</div> <% end %> </td>
-		<td> TODO: </td>
-		<td> TODO: </td>
+		<td> <%=
+
+ @last_updated_ticket = project.tickets.find :first, :order => 'updated_at DESC'
+      link_to @last_updated_ticket.title, edit_ticket_path(@last_updated_ticket) unless @last_updated_ticket.nil?
+
+%> </td>
+		<td> <%=
+ @last_updated_ticket.updated_at unless @last_updated_ticket.nil?
+
+%> </td>
 	</tr>
 	<% end %>
 
 </table>
 
 <% else -%>
+
 <%= link_to 'Sign in', new_user_session_path %>
 <%= link_to 'Sign up as User', new_user_registration_path %>
 <% end -%>
 
+<%= will_paginate @projects %>

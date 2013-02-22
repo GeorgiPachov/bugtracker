@@ -1,4 +1,0 @@
-bugtracker
-==========
-
-bugtracker
