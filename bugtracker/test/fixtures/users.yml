@@ -3,13 +3,11 @@
 one:
   username: MyString
   name: MyString
-  password: MyString
   email: MyString
   role: 1
 
 two:
-  username: MyString
-  name: MyString
-  password: MyString
-  email: MyString
+  username: MyString23
+  name: MyString23
+  email: MyString23
   role: 1

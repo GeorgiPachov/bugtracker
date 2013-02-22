@@ -1,15 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user: 1
   project: 1
   status: MyString
   assignee: 1
-  timestamp: 2013-01-06 11:25:19
-
 two:
-  user: 1
   project: 1
   status: MyString
   assignee: 1
-  timestamp: 2013-01-06 11:25:19
