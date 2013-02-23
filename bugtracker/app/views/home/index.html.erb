@@ -26,16 +26,11 @@ Please sign in to continue.
 
 		<%= project.name %>
 		<% end %> </td>
-		<td> <%=
-
- @last_updated_ticket = project.tickets.find :first, :order => 'updated_at DESC'
-      link_to @last_updated_ticket.title, edit_ticket_path(@last_updated_ticket) unless @last_updated_ticket.nil?
-
-%> </td>
-		<td> <%=
- @last_updated_ticket.updated_at unless @last_updated_ticket.nil?
-
-%> </td>
+		<td> 
+			<%=  @last_updated_ticket = project.tickets.find :first, :order => 'updated_at DESC'
+      			link_to @last_updated_ticket.title, edit_ticket_path(@last_updated_ticket) unless @last_updated_ticket.nil? %> 
+      	</td>
+		<td> <%= @last_updated_ticket.updated_at unless @last_updated_ticket.nil? %> </td>
 	</tr>
 	<% end %>
 

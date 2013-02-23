@@ -12,7 +12,6 @@ class SessionTest < ActionController::IntegrationTest
   end
 
   test "checks homepage" do
-  # login via https
     get "/"
     assert_response :success
   end
@@ -30,15 +29,13 @@ class SessionTest < ActionController::IntegrationTest
   test "login success" do
     login(@user)
     assert page.has_content?("successfully")
-    
   end
 
   test "login fail" do
     user = @user.clone
     user.password = 'wrong password'
     user = login(user)
-    assert user.nil?
-    puts page.inspect
+    assert !page.has_content?("success")
   end
 
   private

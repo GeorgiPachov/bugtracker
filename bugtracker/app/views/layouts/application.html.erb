@@ -76,8 +76,9 @@
 			<hr/>
 			<div id="content">
 				<%= yield  %>
-				<%= link_back 'Back' %>
-
+				<% unless is_at_home_page request.fullpath %>
+					<%= link_back 'Back' %>
+				<% end %>
 			</div>
 			<br/>
 		</div>
