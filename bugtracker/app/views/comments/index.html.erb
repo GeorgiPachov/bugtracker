@@ -13,7 +13,7 @@
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.comment %></td>
-    <td><%= comment.user.name %></td>
+    <td><%= comment.user %></td>
     <td><%= link_to comment.ticket.title, edit_ticket_path(comment.ticket) unless comment.ticket.nil? %></td>
     <td><%= link_to 'Show', comment %></td>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>

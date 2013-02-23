@@ -1,8 +1,18 @@
 require 'test_helper'
 
 class TicketsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
+    sign_in User.first
     @ticket = tickets(:one)
+  end
+
+  test "should create ticket" do
+    assert_difference('Ticket.count') do
+      post :create, ticket: { assignee: @ticket.assignee, project: @ticket.project, status: @ticket.status, user: @ticket.user }
+    end
+
+    assert_redirected_to ticket_path(assigns(:ticket))
   end
 
   test "should get index" do
@@ -16,13 +26,6 @@ class TicketsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create ticket" do
-    assert_difference('Ticket.count') do
-      post :create, ticket: { assignee: @ticket.assignee, project: @ticket.project, status: @ticket.status, user: @ticket.user }
-    end
-
-    assert_redirected_to ticket_path(assigns(:ticket))
-  end
 
   test "should show ticket" do
     get :show, id: @ticket
@@ -35,7 +38,7 @@ class TicketsControllerTest < ActionController::TestCase
   end
 
   test "should update ticket" do
-    put :update, id: @ticket, ticket: { assignee: @ticket.assignee, project: @ticket.project, status: @ticket.status, user: @ticket.user }
+    put :update, id: @ticket.tap {|x| puts x.inspect}, ticket: { assignee: @ticket.assignee, project: @ticket.project, status: @ticket.status, user: @ticket.user }
     assert_redirected_to ticket_path(assigns(:ticket))
   end
 

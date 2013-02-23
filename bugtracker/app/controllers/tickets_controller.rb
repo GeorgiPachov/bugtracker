@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.all
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tickets }
@@ -40,31 +40,18 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
+
+    ticket_hash = params[:ticket]
     
     @project = Project.find(params[:project_id])
-    
-    ticket_hash = params[:ticket]
+
     ticket_hash['reported_by']||=current_user.name
     ticket_hash['status']||=TicketsHelper.status_new
     ticket_hash['assignee']||=current_user.id
-    
+
     @ticket = @project.tickets.create(params[:ticket])
     redirect_to project_path(@project)
-    
-    # @ticket = Ticket.new(params[:ticket])
-#     
-    # @ticket.user ||= current_user.id
-    # @ticket.assignee ||= current_user.id
-#     
-    # respond_to do |format|
-      # if @ticket.save
-        # format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
-        # format.json { render json: @ticket, status: :created, location: @ticket }
-      # else
-        # format.html { render action: "new" }
-        # format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      # end
-    # end
+
   end
 
   # PUT /tickets/1

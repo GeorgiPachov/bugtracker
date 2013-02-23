@@ -1,56 +1,58 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Project Name:</b>
-  <%= @project.name %>
+<p id="notice">
+	<%= notice %>
 </p>
 
 <p>
-  <b>Created on:</b>
-  <%= @project.created_at %>
+	<b>Project Name:</b>
+	<%= @project.name %>
+</p>
+
+<p>
+	<b>Created on:</b>
+	<%= @project.created_at %>
 </p>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Reported by</th>
-    <th>Project</th>
-    <th>Status</th>
-    <th>Assignee</th>
-    <th>Created on:</th>
-    <th>Last update on:</th>
-  </tr>
+	<tr>
+		<th>Title</th>
+		<th>Reported by</th>
+		<th>Project</th>
+		<th>Status</th>
+		<th>Assignee</th>
+		<th>Created on:</th>
+		<th>Last update on:</th>
+	</tr>
 
-<% @project.tickets.page(params[:page]).each do |ticket| %>
-  <tr>
-    <td><%= link_to ticket.title, edit_ticket_path(ticket) %></td>
-    <td><%= ticket.reported_by %></td>
-    <td><%= ticket.project.name %></td>
-    <td><%= ticket.status %></td>
-    <td><%= User.find(ticket.assignee).name %></td>
-    <td><%= ticket.created_at %></td>
-    <td><%= ticket.updated_at %></td>
-  </tr>
-<% end %>
+	<% @project.tickets.page(params[:page]).each do |ticket| %>
+	<tr>
+		<td><%= link_to ticket.title, edit_ticket_path(ticket) %></td>
+		<td><%= ticket.reported_by %></td>
+		<td><%= ticket.project.name %></td>
+		<td><%= ticket.status %></td>
+		<td><%= User.find(ticket.assignee).name %></td>
+		<td><%= ticket.created_at %></td>
+		<td><%= ticket.updated_at %></td>
+	</tr>
+	<% end %>
 </table>
-
 
 <!-- <%= link_to 'Report a ticket', new_ticket_path %> -->
 <%= link_to 'Edit', edit_project_path(@project) %>
 
-
 <h2>Create a ticket:</h2>
 <%= form_for([@project, @project.tickets.build]) do |f| %>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :descritpion %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+	<%= f.label :title %>
+	<br />
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :descritpion %>
+	<br />
+	<%= f.text_area :description %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>
 

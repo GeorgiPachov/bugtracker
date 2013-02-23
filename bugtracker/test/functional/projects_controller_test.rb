@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
+    sign_in User.first
     @project = projects(:one)
   end
 
@@ -18,7 +20,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { name: @project.name, timestamp: @project.timestamp }
+      post :create, project: { name: @project.name }
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -35,7 +37,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project" do
-    put :update, id: @project, project: { name: @project.name, timestamp: @project.timestamp }
+    put :update, id: @project, project: { name: @project.name }
     assert_redirected_to project_path(assigns(:project))
   end
 

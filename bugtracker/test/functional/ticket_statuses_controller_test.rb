@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class TicketStatusesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   setup do
+    sign_in User.first
     @ticket_status = ticket_statuses(:one)
   end
 

@@ -23,9 +23,9 @@ Please sign in to continue.
 	<% @projects.each do |project| %>
 	<tr>
 		<td><%= link_to(project) do %>
-		<div>
-			<%= project.name %>
-		</div> <% end %> </td>
+
+		<%= project.name %>
+		<% end %> </td>
 		<td> <%=
 
  @last_updated_ticket = project.tickets.find :first, :order => 'updated_at DESC'
@@ -43,8 +43,8 @@ Please sign in to continue.
 
 <% else -%>
 
-<%= link_to 'Sign in', new_user_session_path %>
-<%= link_to 'Sign up as User', new_user_registration_path %>
+<%= link_to 'Sign in!', new_user_session_path %>
+<%= link_to 'Sign up!', new_user_registration_path %>
 <% end -%>
 
 <%= will_paginate @projects %>

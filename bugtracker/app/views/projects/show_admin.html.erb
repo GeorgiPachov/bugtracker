@@ -5,11 +5,6 @@
   <%= @project.name %>
 </p>
 
-<p>
-  <b>Timestamp:</b>
-  <%= @project.timestamp %>
-</p>
-
 
 <table>
   <tr>
@@ -29,7 +24,6 @@
     <td><%= ticket.project %></td>
     <td><%= ticket.status %></td>
     <td><%= ticket.assignee %></td>
-    <td><%= ticket.timestamp %></td>
     <td><%= link_to 'Show', ticket %></td>
     <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
     <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -190,10 +190,6 @@ form {
 #header_left {
 	display: inline-block;
 }
-table div:hover {
-	color: black;
-	background-color: #EEEEEE;
-}
 
 footer {
 	text-align: center;

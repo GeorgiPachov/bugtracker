@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
+    sign_in User.first
     @comment = comments(:one)
   end
 
@@ -18,7 +20,7 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, comment: { comment: @comment.comment, ticket: @comment.ticket, user: @comment.user }
+      post :create, comment: { comment: @comment.comment, ticket: Ticket.find(@comment.ticket), user: @comment.user }
     end
 
     assert_redirected_to comment_path(assigns(:comment))

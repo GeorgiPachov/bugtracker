@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password_confirmation, :remember_me
-  attr_accessible :email, :name, :password, :role, :username
+  attr_accessible :email, :password_confirmation, :remember_me, :name, :password, :role, :username
   has_many :tickets
 
+  validates :email, {:presence => true, :uniqueness => true }
   validates :name, :presence => true
-  validates :username, :presence => true
+  validates :username,{ :presence => true, :uniqueness => true }
   validates :password, :length => { :in => 6..20 }
   self.per_page = 10
 end

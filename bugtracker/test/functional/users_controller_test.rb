@@ -1,8 +1,18 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
+  class ActiveSupport::TestCase
+    self.use_transactional_fixtures = true
+  end
+
   setup do
+    sign_in User.first
     @user = users(:one)
+
+    # XXX Horrible, but fixture 'users.yml' creates wrong SQL due to combined with devise
+    @user.password = 'TestString'
   end
 
   test "should get index" do

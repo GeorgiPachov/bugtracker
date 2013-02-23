@@ -2,10 +2,6 @@
 
 one:
   comment: MyText
-  user: 
-  ticket: 
+  ticket: one
+  user: one
 
-two:
-  comment: MyText
-  user: 
-  ticket: 

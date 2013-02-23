@@ -1,13 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  username: MyString
-  name: MyString
-  email: MyString
+  username: test
+  name: Test Test
+  email: testtest@test.com
   role: 1
+  id: 1
 
-two:
-  username: MyString23
-  name: MyString23
-  email: MyString23
-  role: 1
